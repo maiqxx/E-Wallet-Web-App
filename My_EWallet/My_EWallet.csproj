@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ServicesPageStyling.css" />
+    <Content Include="Images\Icons\arrow-left-solid.svg" />
     <Content Include="Images\ServicesPageIMGs\1.png" />
     <Content Include="Images\ServicesPageIMGs\2.png" />
     <Content Include="Images\ServicesPageIMGs\3.png" />

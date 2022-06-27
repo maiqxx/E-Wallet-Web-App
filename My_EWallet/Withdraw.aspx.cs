@@ -34,15 +34,17 @@ namespace My_EWallet
                     db.Open();
                     using (var cmd = db.CreateCommand())
                     {
+                        //checks if the user's current balance 
                         if (currBalance < amt)
                         {
+                            //if current balance is not enough
                             Response.Write("<script>alert('Your current balance is not enough for cash out.')</script>");
                             Response.Redirect("Transaction");
 
                         }
                         else
                         {
-
+                            //if current balance is enough
                             cmd.CommandType = CommandType.Text;
                             cmd.CommandText = "INSERT INTO TRANSACTBL (TYPE, TDATE, AMT, SENDTO, EMAIL)" + "VALUES (@type, @date, @amt, @sendto, @email)";
                             cmd.Parameters.AddWithValue("@type", type);
@@ -54,6 +56,7 @@ namespace My_EWallet
 
                             if (ctr >= 1)
                             {
+                                //calls setBalance() function to update the user's balance
                                 setBalance();
                             }
                             else
@@ -69,9 +72,6 @@ namespace My_EWallet
 
                 }
 
-
-
-
             }
             catch (Exception)
             {
@@ -79,7 +79,7 @@ namespace My_EWallet
                 //Response.Redirect("Default");
             }
 
-
+            //this function updates user's balance
             void setBalance()
             {
                 using (var db = new SqlConnection(connDB))

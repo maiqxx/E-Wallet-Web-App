@@ -37,6 +37,7 @@ namespace My_EWallet
                     db.Open();
                     using (var cmd = db.CreateCommand())
                     {
+                        //checks if user is already registered or not
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandText = "SELECT * FROM USERTBL WHERE USRNAME = @username OR EMAIL = @email";
                         cmd.Parameters.AddWithValue("@username", uname);
@@ -53,6 +54,7 @@ namespace My_EWallet
                         {
                             rd.Close();
 
+                            //If he/she registers as an admin, then admin's information will be added to USERTBL
                             if (rbtnRole.SelectedValue == "Admin")
                             {
                                 cmd.CommandType = CommandType.Text;
@@ -77,6 +79,8 @@ namespace My_EWallet
                                     Response.Write("<script>alert('Sorry, something went wrong... Please try again.')</script>");
                                 }
                             }
+
+                            //Else, if he/she registers as user, his/her information will also be recorded in USERTBL
                             else if (rbtnRole.SelectedValue == "User")
                             {
                                 cmd.CommandType = CommandType.Text;
@@ -94,7 +98,8 @@ namespace My_EWallet
                                 if (ctr >= 1)
                                 {
                                     Response.Write("<script>alert('Congratulations, you created your account successfully!')</script>");
-                                    Response.Write("<script>alert('You received 2000.00 Php as your initial balance!')</script>");
+                                    //Response.Write("<script>alert('You received Php 2000.00 as your initial balance!')</script>");
+                                    lblInBal.Text = "You received Php 2000.00 as your initial balance!";
                                     Response.Redirect("LogIn");
 
                                 }
@@ -120,12 +125,10 @@ namespace My_EWallet
             } 
             catch (Exception ex)
             {
+                //throws
                 Response.Write("<script>alert('Uh-oh! Something went wrong!')</script>");
                 Response.Write(ex);
             }
-
-            
-
 
         }
 

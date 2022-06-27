@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageUsers.aspx.cs" Inherits="My_EWallet.WebForm10" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <h4 style="color: #FFFFFF"> Manage Registered Users</h4>
+    <hr />
 
-    <h3 style="color: #FFFFFF">Manage Registered Users</h3>
-    <hr/>
+    <div class="w3-bar">
+        <button class="w3-button w3-round-large w3-blue-gray w3-right" id="btnSearch" runat="server">Search</button> &nbsp;&nbsp;&nbsp;<input id="txtSearchBar" class="w3-input w3-border w3-round w3-right" type="search" placeholder="Search here..." style="width:250px;"/>
+    </div>
     <br />
 
-    <%--<div style="display: flex; justify-content: center;">--%>
-
-           <%--<div style="display: flex; justify-content: center; width:87%; height: 415px; margin-left: 59px;";>--%>
     
     <asp:GridView ID="usersGV" runat="server" AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="ID" ShowHeaderWhenEmpty="True"
                 GridLines="None" Height="405px" BorderWidth="1px" CellPadding="3" CellSpacing="2" Width="16px"
@@ -125,7 +126,7 @@
             <asp:TemplateField >
                 <ItemTemplate>
                     <asp:Button ID="btnEdit" runat="server" Text="Edit" CommandName="Edit" ToolTip="Edit" Width="70px" Height="30px"/>
-                    <asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="Delete" ToolTip="Delete" Width="70px" Height="30px"/>  
+                    <asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="Delete" ToolTip="Delete" Width="70px" Height="30px" OnClientClick ="return confirm('Are you sure you want to delete this user?');"/>  
                 </ItemTemplate>
                 <ItemStyle Width ="40%"/>
 
@@ -143,23 +144,10 @@
                  </Columns>
                  
                 </asp:GridView>
-                <br /><br />
-                    <asp:Label ID="lblSuccessMessage" runat="server" Text="" ForeColor="Green"></asp:Label>
-                    <asp:Label ID="lblErrorMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
+                <br />
 
-
-
-
-
-
-
-
-           <%--</div>--%>
-
-            
-          
-     <%--</div>--%>
-
+                <asp:Label ID="lblSuccessMessage" runat="server" Text="" ForeColor="Green"></asp:Label>
+                <asp:Label ID="lblErrorMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
 
 
 </asp:Content>
