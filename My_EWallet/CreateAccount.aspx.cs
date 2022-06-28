@@ -98,8 +98,7 @@ namespace My_EWallet
                                 if (ctr >= 1)
                                 {
                                     Response.Write("<script>alert('Congratulations, you created your account successfully!')</script>");
-                                    //Response.Write("<script>alert('You received Php 2000.00 as your initial balance!')</script>");
-                                    lblInBal.Text = "You received Php 2000.00 as your initial balance!";
+                                    Response.Write("<script>alert('You received Php 2000.00 as your initial balance!')</script>");
                                     Response.Redirect("LogIn");
 
                                 }

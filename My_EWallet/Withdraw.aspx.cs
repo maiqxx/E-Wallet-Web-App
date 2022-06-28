@@ -34,7 +34,7 @@ namespace My_EWallet
                     db.Open();
                     using (var cmd = db.CreateCommand())
                     {
-                        //checks if the user's current balance 
+                        //checks the user's current balance 
                         if (currBalance < amt)
                         {
                             //if current balance is not enough

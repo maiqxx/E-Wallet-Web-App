@@ -279,15 +279,6 @@ namespace My_EWallet
 
 
 
-
-
-
-
-
-
-
-            
-
         }
     }
 }

@@ -32,20 +32,9 @@
             </asp:Panel>
             <br />
         </div>
-        
-        
 
 
     </div>
-
-
-    
-
-
-
-
-
-
 
 
 </asp:Content>

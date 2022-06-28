@@ -5,9 +5,7 @@
     <hr />
     <br />
     <div>
-        <div class="w3-panel w3-pale-green">
-            <asp:Label ID="lblInBal" runat="server" Text="" foreColor="#00cc00"></asp:Label>
-        </div>
+
     <table style="margin: auto; padding: 5px; width: 100%; line-height: inherit; display: inline-table;" align="middle" runat="server">
               
         <tr runat="server">

@@ -17,17 +17,20 @@ namespace My_EWallet
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            myAccountGV.Visible = false;
-            lblStartDate.Visible = false;
-            lblEndDate.Visible = false;
-            txtStartDate.Visible = false;
-            txtEndDate.Visible = false;
+            if (!IsPostBack)
+            {
+                pnlBalance.Visible = true;
+                FillGridView();
+            }
+
+            //lblStartDate.Visible = false;
+            //lblEndDate.Visible = false;
+            //txtStartDate.Visible = false;
+            //txtEndDate.Visible = false;
         }
 
-        protected void btnView_Click(object sender, EventArgs e)
+        void FillGridView()
         {
-            myAccountGV.Visible = true;
-
             string email = Session["email"].ToString();
             using (var db = new SqlConnection(connDB))
             {
@@ -51,30 +54,29 @@ namespace My_EWallet
 
                 db.Close();
             }
-
-
-
         }
+
+      
 
         protected void myAccountGV_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnCustom_Click(object sender, EventArgs e)
-        {
-            lblEndDate.Visible = true;
-            lblStartDate.Visible = true;
-            txtEndDate.Visible = true;
-            txtStartDate.Visible = true;
-        }
-        void notVisible()
-        {
-            lblEndDate.Visible = false;
-            lblStartDate.Visible = false;
-            txtEndDate.Visible = false;
-            txtStartDate.Visible = false;
-        }
+        //protected void btnCustom_Click(object sender, EventArgs e)
+        //{
+        //    lblEndDate.Visible = true;
+        //    lblStartDate.Visible = true;
+        //    txtEndDate.Visible = true;
+        //    txtStartDate.Visible = true;
+        //}
+        //void notVisible()
+        //{
+        //    lblEndDate.Visible = false;
+        //    lblStartDate.Visible = false;
+        //    txtEndDate.Visible = false;
+        //    txtStartDate.Visible = false;
+        //}
 
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -92,6 +94,9 @@ namespace My_EWallet
 
         }
 
+        protected void btnViewHistory_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

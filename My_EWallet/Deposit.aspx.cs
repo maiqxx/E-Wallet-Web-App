@@ -28,47 +28,60 @@ namespace My_EWallet
             string sendto = "";
             double balance = Convert.ToDouble(Session["bal"].ToString());
 
-            if ((Convert.ToDouble(amt) > 2000) && (Convert.ToDouble(amt) % 100 == 0))
+            try
             {
-                Response.Write("<script>alert('Maximum amount to be deposited is 2ooo.00 only')</script>");
-            }
-            else if ((Convert.ToDouble(amt) < 100) && (Convert.ToDouble(amt) % 100 == 0))
-            {
-                Response.Write("<script>alert('Minimum amount to be deposited is 1oo.00 only')</script>");
-            }
-            else
-            {
-                using (var db = new SqlConnection(connDB))
+                if (((amt > 2000) && (amt % 100 != 0)) || ((amt < 100) && (amt % 100 != 0)))
                 {
-                    db.Open();
-                    using (var cmd = db.CreateCommand())
+                    Response.Write("<script>alert('Maximum amount to be deposited is 2000.00 only, and minimum amount to be deposited is 100.00 only!')</script>");
+                }
+                //else if ((amt < 100) && (amt % 100 != 0))
+                //{
+                //   // Response.Write("<script>alert('Minimum amount to be deposited is 1oo.00 only')</script>");
+                //}
+                else if ((amt <= 2000)&& (amt % 100 == 0))
+                {
+                    using (var db = new SqlConnection(connDB))
                     {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "INSERT INTO TRANSACTBL (TYPE, TDATE, AMT, SENDTO, EMAIL) "
-                            + " VALUES (@type,@date,@amt,@sendto, @email)";
-                        cmd.Parameters.AddWithValue("@type", type);
-                        cmd.Parameters.AddWithValue("@date", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@amt", amt);
-                        cmd.Parameters.AddWithValue("@sendto", sendto);
-                        cmd.Parameters.AddWithValue("@email", userEmail);
-                        var ctr = cmd.ExecuteNonQuery();
-                        if (ctr >= 1)
+                        db.Open();
+                        using (var cmd = db.CreateCommand())
                         {
-                            setBalance();
-                        }
-                        else
-                        {
-                            Response.Write("<script>alert('Oooppss.. Something wRong!')</script>");
-                            Response.Redirect("Transaction");
-                        }
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = "INSERT INTO TRANSACTBL (TYPE, TDATE, AMT, SENDTO, EMAIL) "
+                                + " VALUES (@type,@date,@amt,@sendto, @email)";
+                            cmd.Parameters.AddWithValue("@type", type);
+                            cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@amt", amt);
+                            cmd.Parameters.AddWithValue("@sendto", sendto);
+                            cmd.Parameters.AddWithValue("@email", userEmail);
+                            var ctr = cmd.ExecuteNonQuery();
+                            if (ctr >= 1)
+                            {
+                                setBalance();
+                            }
+                            else
+                            {
+                                Response.Write("<script>alert('Oooppss.. Something wRong!')</script>");
+                                Response.Redirect("Transaction");
+                            }
 
-                        //add a method here that will check the user's current balance,  bc balance must not exceeded 10,000
-                        //kulang pa
+                            //add a method here that will check the user's current balance,  bc balance must not exceeded 10,000
+                            //kulang pa
+
+                        }
 
                     }
-
+                }
+                else
+                {
+                    Response.Write("<script>alert('Please input the amount to be deposited!')</script>");
                 }
             }
+            catch (Exception ex)
+            {
+
+            }
+
+            
 
             //Function that sets or updates the user's balance
             void setBalance()
