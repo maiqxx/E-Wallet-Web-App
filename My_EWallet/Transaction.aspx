@@ -21,7 +21,7 @@
         <a href="#" runat="server" class="w3-bar-item w3-button" style="color:white;">Reports</a>
         
         <a href="../LogIn" runat="server" class="w3-bar-item w3-button w3-right" style="color:white;">Log Out</a>
-        <a href="#" runat="server" class="w3-bar-item w3-button w3-right" style="color:white;">Update Profile</a>
+        <a href="../MyProfile" runat="server" class="w3-bar-item w3-button w3-right" style="color:white;">Profile</a>
     </div>
 
     <br />
@@ -56,9 +56,6 @@
        
     </div>
 
-    <br /><br />
-    <br /><br />
-    <br /><br />
     <br /><br />
     <br /><br />
 

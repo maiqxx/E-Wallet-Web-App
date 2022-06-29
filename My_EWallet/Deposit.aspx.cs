@@ -78,7 +78,7 @@ namespace My_EWallet
             }
             catch (Exception ex)
             {
-
+                Response.Write(ex);
             }
 
             

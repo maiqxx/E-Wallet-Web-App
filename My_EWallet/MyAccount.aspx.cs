@@ -8,7 +8,6 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace My_EWallet
 {
     public partial class WebForm7 : System.Web.UI.Page
@@ -36,7 +35,7 @@ namespace My_EWallet
             {
                 db.Open();
                 SqlCommand cmd = new SqlCommand();
-                string sql = "SELECT ID, TYPE, SENDTO, TDATE, AMT FROM TRANSACTBL WHERE EMAIL = '" + email + "'";
+                string sql = "SELECT ID, TYPE, TDATE, AMT, SENDTO FROM TRANSACTBL WHERE EMAIL = '" + email + "'";
                 cmd.CommandText = sql;
                 cmd.Connection = db;
                 DataTable dt = new DataTable();
@@ -63,20 +62,20 @@ namespace My_EWallet
 
         }
 
-        //protected void btnCustom_Click(object sender, EventArgs e)
-        //{
-        //    lblEndDate.Visible = true;
-        //    lblStartDate.Visible = true;
-        //    txtEndDate.Visible = true;
-        //    txtStartDate.Visible = true;
-        //}
-        //void notVisible()
-        //{
-        //    lblEndDate.Visible = false;
-        //    lblStartDate.Visible = false;
-        //    txtEndDate.Visible = false;
-        //    txtStartDate.Visible = false;
-        //}
+        protected void btnCustom_Click(object sender, EventArgs e)
+        {
+            //lblEndDate.Visible = true;
+            //lblStartDate.Visible = true;
+            //txtEndDate.Visible = true;
+            //txtStartDate.Visible = true;
+        }
+        void notVisible()
+        {
+            //lblEndDate.Visible = false;
+            //lblStartDate.Visible = false;
+            //txtEndDate.Visible = false;
+            //txtStartDate.Visible = false;
+        }
 
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -96,6 +95,68 @@ namespace My_EWallet
 
         protected void btnViewHistory_Click(object sender, EventArgs e)
         {
+            string email = Session["email"].ToString();
+            myAccountGV.Visible = true;
+
+            try
+            {
+                using (var db = new SqlConnection(connDB))
+                {
+                    db.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TDATE BETWEEN '" + txtStartDate.Text + "' AND '" + txtEndDate.Text + "' AND TYPE = '" + cblTransactType.SelectedValue + "'";
+                    cmd.CommandText = sql;
+                    cmd.Connection = db;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                    myAccountGV.DataSource = dt;
+                    myAccountGV.DataBind();
+
+                    int count = myAccountGV.Rows.Count;
+                    if (count == 0)
+                    {
+                        Response.Write("<script>alert('No activity found.')</script>");
+                    }
+
+
+                    db.Close();
+                }
+
+                } 
+            
+            catch(Exception ex)
+            {
+                Response.Write(ex);
+            }
+
+
+
+            /*
+            using (var db = new SqlConnection(connDB))
+            {
+                db.Open();
+                SqlCommand cmd = new SqlCommand();
+                string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TDATE BETWEEN '" + txtStartDate.Text + "' AND '" + txtEndDate.Text + "' AND TYPE = '" + cblTransactType.SelectedValue + "'";
+                cmd.CommandText = sql;
+                cmd.Connection = db;
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                myAccountGV.DataSource = dt;
+                myAccountGV.DataBind();
+
+                int count = myAccountGV.Rows.Count;
+                if (count == 0)
+                {
+                    Response.Write("<script>alert('No activity found.')</script>");
+                }
+
+
+                db.Close();
+            }*/
+
+
 
         }
     }

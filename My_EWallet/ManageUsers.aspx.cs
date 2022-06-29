@@ -154,6 +154,41 @@ namespace My_EWallet
             }
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string specifiedField = "User";
+                using (SqlConnection db = new SqlConnection(connDB))
+                {
+                    db.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    string sql = "SELECT * FROM USERTBL WHERE ROLE = '" + specifiedField + "' AND LNAME LIKE '%"+ txtSearchBar.Text + "%' OR FNAME LIKE '%" + txtSearchBar.Text + "%' OR EMAIL LIKE '%" + txtSearchBar.Text + "%' OR USRNAME LIKE '%" + txtSearchBar.Text + "%' OR BALANCE LIKE '%" + txtSearchBar.Text + "%' ";
+                    cmd.CommandText = sql;
+                    cmd.Connection = db;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                    usersGV.DataSource = dt;
+                    usersGV.DataBind();
 
+                    int count = usersGV.Rows.Count;
+                    if (count == 0)
+                    {
+                        Response.Write("<script>alert('No activity found.')</script>");
+                    }
+
+
+                    db.Close();
+                }
+
+
+
+            } 
+            catch(Exception ex)
+            {
+                Response.Write(ex);
+            }
+        }
     }
 }

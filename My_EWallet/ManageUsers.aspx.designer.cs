@@ -30,7 +30,16 @@ namespace My_EWallet
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSearch;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+
+        /// <summary>
+        /// txtSearchBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchBar;
 
         /// <summary>
         /// usersGV control.

@@ -11,88 +11,88 @@ namespace My_EWallet
 {
 
 
-    public partial class WebForm7
+    public partial class WebForm13
     {
 
         /// <summary>
-        /// pnlBalance control.
+        /// pnlProfilePic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlBalance;
+        protected global::System.Web.UI.WebControls.Panel pnlProfilePic;
 
         /// <summary>
-        /// btnDep control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDep;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// lblStartDate control.
+        /// txtLastname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStartDate;
+        protected global::System.Web.UI.WebControls.TextBox txtLastname;
 
         /// <summary>
-        /// txtStartDate control.
+        /// txtFirstname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstname;
 
         /// <summary>
-        /// lblEndDate control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEndDate;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// txtEndDate control.
+        /// txtDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
+        protected global::System.Web.UI.WebControls.TextBox txtDOB;
 
         /// <summary>
-        /// cblTransactType control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblTransactType;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
-        /// btnViewHistory control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewHistory;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// myAccountGV control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView myAccountGV;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

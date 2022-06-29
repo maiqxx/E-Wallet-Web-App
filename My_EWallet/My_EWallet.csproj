@@ -111,6 +111,7 @@
     <Content Include="Images\AdminImgs\pexels-matt-hardy-3560168.jpg" />
     <Content Include="Images\AdminImgs\pexels-yuliia-tretynychenko-11789773.jpg" />
     <Content Include="Images\Icons\arrow-left-solid.svg" />
+    <Content Include="Images\Icons\userIcon.png" />
     <Content Include="Images\ServicesPageIMGs\1.png" />
     <Content Include="Images\ServicesPageIMGs\2.png" />
     <Content Include="Images\ServicesPageIMGs\3.png" />
@@ -151,6 +152,7 @@
     <Content Include="ManageUsers.aspx" />
     <Content Include="AdminReports.aspx" />
     <Content Include="AdminAccount.aspx" />
+    <Content Include="MyProfile.aspx" />
     <Content Include="Withdraw.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -312,6 +314,13 @@
     </Compile>
     <Compile Include="AdminAccount.aspx.designer.cs">
       <DependentUpon>AdminAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Withdraw.aspx.cs">
       <DependentUpon>Withdraw.aspx</DependentUpon>

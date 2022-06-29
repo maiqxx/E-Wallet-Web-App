@@ -3,7 +3,7 @@
 
     <table style="width: 30%;">
         <tr>
-            <td style="width:10px;s"><asp:LinkButton ID="lnkBtnBack" runat="server" PostBackUrl="~/Admin.aspx" CssClass="fa-inverse" style="font-size: smaller"><<</asp:LinkButton></td>
+            <td style="width:10px;"><asp:LinkButton ID="lnkBtnBack" runat="server" PostBackUrl="~/Admin.aspx" CssClass="fa-inverse" style="font-size: smaller"><<</asp:LinkButton></td>
             <td style="width:250px"><h4 style="color: #FFFFFF"> Manage Registered Users</h4></td>
         </tr>
         
@@ -11,7 +11,10 @@
     <hr />
 
     <div class="w3-bar">
-        <button class="w3-button w3-round-large w3-blue-gray w3-right" id="btnSearch" runat="server">Search</button> &nbsp;&nbsp;&nbsp;<input id="txtSearchBar" class="w3-input w3-border w3-round w3-right" type="search" placeholder="Search here..." style="width:250px;"/>
+        <%--<button class="w3-button w3-round-large w3-blue-gray w3-right" id="btnSearch" runat="server">Search</button> &nbsp;&nbsp;&nbsp;<input id="txtSearchBar" class="w3-input w3-border w3-round w3-right" type="search" placeholder="Search here..." style="width:250px;"/>--%>
+        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="w3-button w3-round-large w3-blue-gray w3-right" />
+        &nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtSearchBar" runat="server" class="w3-input w3-border w3-round w3-right" placeholder="Search here..." style="width:250px;"></asp:TextBox>
     </div>
     <br />
 
