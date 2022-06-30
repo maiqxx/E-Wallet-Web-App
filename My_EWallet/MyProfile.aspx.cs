@@ -27,6 +27,7 @@ namespace My_EWallet
                     db.Open();
                     using (var cmd = db.CreateCommand())
                     {
+                        //selects the current data of the user
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandText = "SELECT * FROM USERTBL WHERE ROLE = '"+specifiedField+"' AND EMAIL = '"+ email +"' ";
                         cmd.Parameters.AddWithValue("@email", Session["email"]);
@@ -46,6 +47,7 @@ namespace My_EWallet
                         }
 
                     }
+                    db.Close();
                 }
             }
         }
@@ -62,6 +64,7 @@ namespace My_EWallet
                     db.Open();
                     using (var cmd = db.CreateCommand())
                     {
+                        //updates the user's data when changes are made
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandText = "UPDATE USERTBL SET LNAME = @lname, FNAME = @fname, BDATE = @bdate, USRNAME = @uname, PSWD = @pswd WHERE EMAIL = '"+email+"' AND ROLE = '"+ specifiedField +"' ";
                         
@@ -71,16 +74,32 @@ namespace My_EWallet
                         cmd.Parameters.AddWithValue("@uname", txtUsername.Text);
                         cmd.Parameters.AddWithValue("@pswd", txtPassword.Text);
 
-                        db.Open();
-                        cmd.ExecuteNonQuery();
+                        // db.Open();
+                        // cmd.ExecuteNonQuery();
+
+                        var ctr = cmd.ExecuteNonQuery();
+                        if (ctr > 0)
+                        {
+                            Response.Write("<script>alert('Profile successfully updated! Please log in again.')</script>");
+                            Response.Redirect("LogIn.aspx");
+                            //Page_Load();
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Cannot update profile.')</script>");
+                        }
+
+
                     }
-                    Response.Write("<script>alert('Profile successfully updated!')</script>");
+                    
+                    
                 }
+                
 
             }
             catch(Exception ex)
             {
-               Response.Write("<script>alert('Cannot update profile.')</script>");
+                Response.Write("<script>alert('Sorry, something went wrong...')</script>");
                 Response.Write(ex.ToString());  
             }
         }

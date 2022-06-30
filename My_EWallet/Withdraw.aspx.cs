@@ -16,7 +16,18 @@ namespace My_EWallet
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CheckForPageSkipping();
+        }
 
+        void CheckForPageSkipping()
+        {
+
+            if (HttpContext.Current.Session["username"] == null)
+                Response.Redirect("Login.aspx");
+            if (HttpContext.Current.Session["email"] == null)
+                Response.Redirect("Login.aspx");
+            if (HttpContext.Current.Session["bal"] == null)
+                Response.Redirect("Login.aspx");
         }
 
         protected void btnWithdraw_Click(object sender, EventArgs e)

@@ -19,13 +19,9 @@ namespace My_EWallet
             if (!IsPostBack)
             {
                 pnlBalance.Visible = true;
-                FillGridView();
+                this.FillGridView();
             }
 
-            //lblStartDate.Visible = false;
-            //lblEndDate.Visible = false;
-            //txtStartDate.Visible = false;
-            //txtEndDate.Visible = false;
         }
 
         void FillGridView()
@@ -55,108 +51,100 @@ namespace My_EWallet
             }
         }
 
-      
-
-        protected void myAccountGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnCustom_Click(object sender, EventArgs e)
-        {
-            //lblEndDate.Visible = true;
-            //lblStartDate.Visible = true;
-            //txtEndDate.Visible = true;
-            //txtStartDate.Visible = true;
-        }
-        void notVisible()
-        {
-            //lblEndDate.Visible = false;
-            //lblStartDate.Visible = false;
-            //txtEndDate.Visible = false;
-            //txtStartDate.Visible = false;
-        }
-
-
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtStartDate_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtEndDate_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnViewHistory_Click(object sender, EventArgs e)
         {
             string email = Session["email"].ToString();
-            myAccountGV.Visible = true;
-
+            string deposit = "D";
+            string withdraw = "W";
+            string sendMoney = "S";
             try
             {
                 using (var db = new SqlConnection(connDB))
                 {
                     db.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TDATE BETWEEN '" + txtStartDate.Text + "' AND '" + txtEndDate.Text + "' AND TYPE = '" + cblTransactType.SelectedValue + "'";
-                    cmd.CommandText = sql;
-                    cmd.Connection = db;
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(dt);
-                    myAccountGV.DataSource = dt;
-                    myAccountGV.DataBind();
-
-                    int count = myAccountGV.Rows.Count;
-                    if (count == 0)
+                    if (ddlTransactType.SelectedValue == "D")
                     {
-                        Response.Write("<script>alert('No activity found.')</script>");
+                        SqlCommand cmd = new SqlCommand();
+                        string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TYPE = '" + deposit + "' ";
+                        cmd.CommandText = sql;
+                        cmd.Connection = db;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(dt);
+                        myAccountGV.DataSource = dt;
+                        myAccountGV.DataBind();
+
+                        int count = myAccountGV.Rows.Count;
+                        if (count == 0)
+                        {
+                            Response.Write("<script>alert('No activity found.')</script>");
+                        }
+
+
+                        db.Close();
+
+                    }
+                    else if (ddlTransactType.SelectedValue == "W")
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TYPE = '" + withdraw + "' ";
+                        cmd.CommandText = sql;
+                        cmd.Connection = db;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(dt);
+                        myAccountGV.DataSource = dt;
+                        myAccountGV.DataBind();
+
+                        int count = myAccountGV.Rows.Count;
+                        if (count == 0)
+                        {
+                            Response.Write("<script>alert('No activity found.')</script>");
+                        }
+
+
+                        db.Close();
+                    }
+                    else
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TYPE = '" + sendMoney + "' ";
+                        cmd.CommandText = sql;
+                        cmd.Connection = db;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(dt);
+                        myAccountGV.DataSource = dt;
+                        myAccountGV.DataBind();
+
+                        int count = myAccountGV.Rows.Count;
+                        if (count == 0)
+                        {
+                            Response.Write("<script>alert('No activity found.')</script>");
+                        }
+
+
+                        db.Close();
                     }
 
 
-                    db.Close();
-                }
 
-                } 
-            
-            catch(Exception ex)
-            {
-                Response.Write(ex);
+
+
+
+
+                }
             }
-
-
-
-            /*
-            using (var db = new SqlConnection(connDB))
+            catch (Exception ex)
             {
-                db.Open();
-                SqlCommand cmd = new SqlCommand();
-                string sql = "SELECT * FROM TRANSACTBL WHERE EMAIL = '" + email + "' AND TDATE BETWEEN '" + txtStartDate.Text + "' AND '" + txtEndDate.Text + "' AND TYPE = '" + cblTransactType.SelectedValue + "'";
-                cmd.CommandText = sql;
-                cmd.Connection = db;
-                DataTable dt = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dt);
-                myAccountGV.DataSource = dt;
-                myAccountGV.DataBind();
 
-                int count = myAccountGV.Rows.Count;
-                if (count == 0)
-                {
-                    Response.Write("<script>alert('No activity found.')</script>");
-                }
+            }
+        }
 
 
-                db.Close();
-            }*/
-
-
+        protected void ddlTransactType_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

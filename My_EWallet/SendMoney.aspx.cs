@@ -16,7 +16,19 @@ namespace My_EWallet
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CheckForPageSkipping();
             pnlConfirmTransfer.Visible = false;
+        }
+
+        void CheckForPageSkipping()
+        {
+
+            if (HttpContext.Current.Session["username"] == null)
+                Response.Redirect("Login.aspx");
+            if (HttpContext.Current.Session["email"] == null)
+                Response.Redirect("Login.aspx");
+            if (HttpContext.Current.Session["bal"] == null)
+                Response.Redirect("Login.aspx");
         }
 
         //Enabling the panel to be displayed for confirmation

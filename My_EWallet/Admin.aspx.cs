@@ -16,11 +16,18 @@ namespace My_EWallet
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CheckForPageSkipping();
+        }
+
+        void CheckForPageSkipping()
+        {
+
+            if (HttpContext.Current.Session["email"] == null)
+                Response.Redirect("Login.aspx");
 
         }
 
-       
 
-        
+
     }
 }
