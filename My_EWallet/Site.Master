@@ -24,6 +24,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
+    <style type="text/css">
+        footer{
+          padding:15px 0;
+          text-align: center;
+        }
+        footer .text span{
+          font-size: 17px;
+          font-weight: 400;
+          color:white;
+        }
+        footer .text span a{
+          font-weight: 500;
+          color:white;
+        }
+        footer .text span a:hover{
+          text-decoration: underline;
+        }
+
+
+    </style>
+
 
 </head>
 <body style="background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);">
@@ -92,7 +113,10 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p style="color: #FFFFFF">&copy; <%: DateTime.Now.Year %> - E-Wallet Application</p>
+                <%--<p style="color: #FFFFFF">&copy; <%: DateTime.Now.Year %> - E-Wallet Application</p>--%>
+                    <div class="text">
+                        <span>Created By <a href="#">Jamaica Cavalida</a> | &copy; <%: DateTime.Now.Year %> - E-Wallet Application</span>
+                    </div>
             </footer>
         </div>
 
