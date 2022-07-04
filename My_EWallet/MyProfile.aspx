@@ -81,7 +81,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtLastname" runat="server" class="w3-input w3-border w3-round-xlarge textbox-style"></asp:TextBox>
+                        <asp:TextBox ID="txtLastname" runat="server" class="w3-input w3-border w3-round-large textbox-style"></asp:TextBox>
                     </td>
                 </tr>          
 
@@ -91,7 +91,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtFirstname" runat="server" class="w3-input w3-border w3-round-xlarge textbox-style"></asp:TextBox>
+                        <asp:TextBox ID="txtFirstname" runat="server" class="w3-input w3-border w3-round-large textbox-style"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -101,7 +101,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtEmail" runat="server" class="w3-input w3-border w3-round-xlarge textbox-style email"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" class="w3-input w3-border w3-round-large textbox-style email"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -111,7 +111,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtDOB" runat="server" class="w3-input w3-border w3-round-xlarge textbox-style" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtDOB" runat="server" class="w3-input w3-border w3-round-large textbox-style" TextMode="Date"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -121,7 +121,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtUsername" runat="server" class="w3-input w3-border w3-round-xlarge textbox-style"></asp:TextBox>
+                        <asp:TextBox ID="txtUsername" runat="server" class="w3-input w3-border w3-round-large textbox-style"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -131,14 +131,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtPassword" runat="server" class="w3-input w3-border w3-round-xlarge textbox-style"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword" runat="server" class="w3-input w3-border w3-round-large textbox-style"></asp:TextBox>
                        <%-- &nbsp; &nbsp; &nbsp;
                         <asp:CheckBox ID="cbSeePass" runat="server" />--%>
                     </td>
                 </tr>
             </table>
             <br />
-            <asp:Button ID="btnUpdate" runat="server" Text="Update Profile" OnClick="btnUpdate_Click" class="w3-button w3-blue w3-round-xlarge" OnClientClick ="return confirm('Are you sure you want to make some changes?');"/>
+            <asp:Button ID="btnUpdate" runat="server" Text="Update Profile" OnClick="btnUpdate_Click" class="w3-button w3-blue w3-round-large" OnClientClick ="return confirm('Are you sure you want to make some changes?');"/>
 
         </asp:Panel>
 

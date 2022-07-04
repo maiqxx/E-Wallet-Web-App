@@ -32,13 +32,13 @@
              <br />
     </div>
                 <div class= "dropdown-div">
-                    <asp:ImageButton ID="btnViewHistory" runat="server" Text="Filter" OnClick="btnViewHistory_Click" width="35px" Height="35px"  CssClass=" w3-right" ImageUrl="~/Images/Icons/filter.png" ToolTip="Filter Activity"/>
-                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:ImageButton ID="btnViewHistory" runat="server" Text="Filter" OnClick="btnViewHistory_Click" width="35px" Height="35px"  CssClass=" w3-right" ImageUrl="~/Images/Icons/search.png" ToolTip="Filter Activity"/>
                     <asp:DropDownList ID="ddlTransactType" runat="server" OnSelectedIndexChanged="ddlTransactType_SelectedIndexChanged" CssClass="w3-input w3-border w3-round w3-right" Width="200px" ForeColor="#000000">
                         <asp:ListItem Value="D">Deposits</asp:ListItem>  
                         <asp:ListItem Value="W">Withdrawals</asp:ListItem>
                         <asp:ListItem Value="S">Send Money</asp:ListItem>  
                 </asp:DropDownList>
+                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                 </div>
 
                 <div style="display: flex; justify-content: center;" class="gridview-div ">

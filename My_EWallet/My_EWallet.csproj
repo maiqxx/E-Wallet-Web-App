@@ -113,7 +113,12 @@
     <Content Include="Images\Icons\calendar.png" />
     <Content Include="Images\Icons\calendarIcon.png" />
     <Content Include="Images\Icons\arrow-left-solid.svg" />
+    <Content Include="Images\Icons\digital-wallet.png" />
+    <Content Include="Images\Icons\filter2.png" />
+    <Content Include="Images\Icons\filter1.png" />
     <Content Include="Images\Icons\filter.png" />
+    <Content Include="Images\Icons\purse.png" />
+    <Content Include="Images\Icons\search.png" />
     <Content Include="Images\Icons\userIcon.png" />
     <Content Include="Images\ServicesPageIMGs\1.png" />
     <Content Include="Images\ServicesPageIMGs\2.png" />

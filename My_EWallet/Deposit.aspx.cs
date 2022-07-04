@@ -45,12 +45,9 @@ namespace My_EWallet
                 {
                     Response.Write("<script>alert('Maximum amount to be deposited is 2000.00 only, and minimum amount to be deposited is 100.00 only!')</script>");
                 }
-                //else if ((amt < 100) && (amt % 100 != 0))
-                //{
-                //   // Response.Write("<script>alert('Minimum amount to be deposited is 1oo.00 only')</script>");
-                //}
-                else if ((amt <= 2000)&& (amt % 100 == 0))
+                else if ((amt <= 2000) && (amt % 100 == 0))
                 {
+
                     using (var db = new SqlConnection(connDB))
                     {
                         db.Open();
@@ -84,7 +81,7 @@ namespace My_EWallet
                 }
                 else
                 {
-                    Response.Write("<script>alert('Please input the amount to be deposited!')</script>");
+                    Response.Write("<script>alert('Your current balance must not exceed 10000.00 pesos')</script>");
                 }
             }
             catch (Exception ex)

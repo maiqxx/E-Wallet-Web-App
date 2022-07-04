@@ -78,7 +78,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <div class="logo"><a class="navbar-brand" runat="server" href="~/">E-Wallet</a></div>
+                    <div><a class="navbar-brand" runat="server" href="~/">E-Wallet</a></div>
                 </div>
                 <div class="navbar-collapse collapse">
 
