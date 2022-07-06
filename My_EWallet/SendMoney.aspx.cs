@@ -82,7 +82,6 @@ namespace My_EWallet
 
 
                     }
-                    //db.Close();
                 }
 
 
@@ -192,7 +191,6 @@ namespace My_EWallet
                                 Response.Redirect("Transaction");
                             }
 
-                            //add a method here that will check the user's current balance,  bc balance must not exceeded 10,000
 
                         }
                         db.Close();
@@ -284,12 +282,7 @@ namespace My_EWallet
                     Response.Write(ex);
                     Response.Redirect("Transaction");
                 }
-
-
-
                 */
-
-
 
         }
     }
