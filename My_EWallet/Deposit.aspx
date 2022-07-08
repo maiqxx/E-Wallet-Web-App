@@ -22,7 +22,8 @@
             <asp:Panel ID="pnlDeposit" runat="server" >
                 <asp:Label ID="lblAmount" runat="server" Text="Amount" ForeColor="White"></asp:Label><br />
                 <asp:TextBox ID="txtAmountDept" class="w3-input w3-border w3-round" runat="server"></asp:TextBox><br />
-                <asp:Button ID="btnDeposit" runat="server" Text="Deposit" OnClick="btnDeposit_Click" class="w3-button w3-blue w3-round" style="height: 40px;" />
+                <asp:Button ID="btnDeposit" runat="server" Text="Deposit" OnClick="btnDeposit_Click" class="w3-button w3-blue w3-round" style="height: 40px;width:100px" />
+                <a href="../Transaction" runat="server" class="w3-button w3-blue w3-round" style="color:white;height: 40px; width:100px">Back</a>
             </asp:Panel>
             </div>
 

@@ -106,7 +106,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtEmail" runat="server" class="w3-input w3-border w3-round-large prevent-select email textbox-style"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" class="w3-input w3-border w3-round-large prevent-select email textbox-style" TextMode="Email"></asp:TextBox>
                     </td>
                 </tr>
 

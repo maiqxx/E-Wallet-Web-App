@@ -23,7 +23,8 @@
         <asp:TextBox ID="txtSendToEm" class="w3-input w3-border w3-round" runat="server" placeholder="Email Address of the Recipient" Width="300px" ></asp:TextBox><br />
         <asp:Label ID="lblAmount" runat="server" Text="Amount" ForeColor="White"></asp:Label><br />
         <asp:TextBox ID="txtAmountToSend" class="w3-input w3-border w3-round" runat="server" Width="300px"></asp:TextBox><br />
-        <asp:Button ID="btnSendMoney" runat="server" Text="Send Money" OnClick="btnSendMoney_Click" class="w3-button w3-blue w3-round" style="height: 40px" /><br />
+        <asp:Button ID="btnSendMoney" runat="server" Text="Send Money" OnClick="btnSendMoney_Click" class="w3-button w3-blue w3-round" style="height: 40px;width:140px" />
+        <a href="../Transaction" runat="server" class="w3-button w3-blue w3-round" style="color:white;height: 40px; width:130px">Back</a>
         <br />
         <asp:RegularExpressionValidator ID="emailRV" 
             runat="server" 

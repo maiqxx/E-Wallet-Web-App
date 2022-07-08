@@ -20,7 +20,7 @@
         <a href="../MyAccount" runat="server" class="w3-bar-item w3-button" style="color:white;">My Statement of Account</a>
         <a href="#" runat="server" class="w3-bar-item w3-button" style="color:white;">Reports</a>
         
-        <a href="../LogIn" runat="server" class="w3-bar-item w3-button w3-right" style="color:white;">Log Out</a>
+        <a href="../LogIn" runat="server" class="w3-bar-item w3-button w3-right" style="color:white;" onclick="LogOut">Log Out</a>
         <a href="../MyProfile" runat="server" class="w3-bar-item w3-button w3-right" style="color:white;">Profile</a>
     </div>
 

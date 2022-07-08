@@ -17,19 +17,12 @@ namespace My_EWallet
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CheckForPageSkipping();
+            if (Session["username"] == null && Session["email"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
-        void CheckForPageSkipping()
-        {
-
-            if (HttpContext.Current.Session["username"] == null)
-                Response.Redirect("Login.aspx");
-            if (HttpContext.Current.Session["email"] == null)
-                Response.Redirect("Login.aspx");
-            if (HttpContext.Current.Session["bal"] == null)
-                Response.Redirect("Login.aspx");
-        }
 
         protected void btnDeposit_Click(object sender, EventArgs e)
         {
@@ -81,7 +74,7 @@ namespace My_EWallet
                 }
                 else
                 {
-                    Response.Write("<script>alert('Your current balance must not exceed 10000.00 pesos')</script>");
+                    Response.Write("<script>alert('Please note that your the amount to be deposited is divisible by 100 and your current balance must not exceed 10000.00 pesos!')</script>");
                 }
             }
             catch (Exception ex)
