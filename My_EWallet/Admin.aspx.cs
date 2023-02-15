@@ -24,10 +24,7 @@ namespace My_EWallet
 
             if (HttpContext.Current.Session["email"] == null)
                 Response.Redirect("Login.aspx");
-
         }
-
-
 
     }
 }
